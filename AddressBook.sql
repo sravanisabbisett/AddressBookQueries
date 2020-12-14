@@ -13,18 +13,24 @@ Firstname varchar(50) Not Null,
 Lastname varchar(50) Not Null,
 Address varchar(50),
 City varchar(50),
+State varchar(50),
 Zip int,
 MobileNumber varchar(10) unique,
 EmailId varchar(50)
 );
 
 --UC3_Insert values in to table
-Insert into Person(Firstname,Lastname,Address,City,Zip,MobileNumber,EmailId)
-values('Sravani','Sabbisetti','GandhiChowk','Bantumilli',521324,'8712443377','sravani.sabbisetti1@gmail.com'),
-('Rupika','Sabbisetti','Arunodayacolony','Hyderabad',500081,'9290815127','Rupika.sabbisetti@gmail.com'),
-('Manju','Chedhalla','Madhapur','Hyderabad',500081,'9712443377','ManjuChedhalla@gmail.com'),
-('Akhilesh','Sabbisetti','Perungudi','Chennai',567890,'7207321696','AkhileshSabbisetti@gmail.com'),
-('Saraiya','Purkana','Krths','Bantumilli',521324,'9959582197','Saraiaya@gmail.com');
+Insert into Person(Firstname,Lastname,Address,City,State,Zip,MobileNumber,EmailId)
+values('Sravani','Sabbisetti','GandhiChowk','Bantumilli','AndhraPradesh',521324,'8712443377','sravani.sabbisetti1@gmail.com'),
+('Rupika','Sabbisetti','Arunodayacolony','Hyderabad','Telangana',500081,'9290815127','Rupika.sabbisetti@gmail.com'),
+('Manju','Chedhalla','Madhapur','Hyderabad','Telangana',500081,'9712443377','ManjuChedhalla@gmail.com'),
+('Akhilesh','Sabbisetti','Perungudi','Chennai','Tamilnadu',567890,'7207321696','AkhileshSabbisetti@gmail.com'),
+('Saraiya','Purkana','Krths','Bantumilli','AndhraPradesh',521324,'9959582197','Saraiaya@gmail.com');
 
 --Retrive all rows from person table
-Select * from Person;
+Select * from Person
+
+--UC4_Update data using person name
+update Person
+set State='karnataka'
+where Firstname='Akhilesh'
