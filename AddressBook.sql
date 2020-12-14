@@ -38,3 +38,8 @@ where Firstname='Akhilesh'
 --UC5_Delete data using Firstname
 delete from Person
 Where Firstname='Akhilesh';
+
+--UC6_Retrive data using city or state
+Select * from Person
+where City='Bantumilli' or State='AndhraPradesh';
+
