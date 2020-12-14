@@ -34,3 +34,7 @@ Select * from Person
 update Person
 set State='karnataka'
 where Firstname='Akhilesh'
+
+--UC5_Delete data using Firstname
+delete from Person
+Where Firstname='Akhilesh';
