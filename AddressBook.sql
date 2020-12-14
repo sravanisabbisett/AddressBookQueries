@@ -43,7 +43,12 @@ Where Firstname='Akhilesh';
 Select * from Person
 where City='Bantumilli' or State='AndhraPradesh';
 
---UC7 CountPersons in persons table
+--UC7_CountPersons in persons table
 Select Count(State) as CountPersons from Person
 where City='Bantumilli' and State='AndhraPradesh';
+
+--UC8_Sort persons alphabetically by FirstName on basis of City
+Select * from Person
+where City='Hyderabad'
+order by Firstname;
 
