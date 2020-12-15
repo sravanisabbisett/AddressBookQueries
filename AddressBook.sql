@@ -90,6 +90,7 @@ values(1,2),
 Insert into Person(Firstname,Lastname,Address,City,State,Zip,MobileNumber,EmailId)
 values('MounikaS','Mekala','GandhiChowk','Bantumilli','AndhraPradesh',521324,'8706543218','Mounisha.sabbisetti1@gmail.com');
 
+--Declaring variable and selecting and saving tje result in the variable
 DECLARE @AddressBookFriend AS int
 select @AddressBookFriend=ABId from AddressBookType where PersonType='Friends';
 
@@ -112,6 +113,14 @@ Insert into PersondAddressBook(PersonId,AddressBookId)
 Values(@mylastinsertId,@AddressBookProfession);
 
 Select * from PersondAddressBook
-
+--truncate used to delete the rows in the table and remains the table structure same
 truncate table PersonAddressBook;
+
+--UC10 Count the Person type
+Select Count(AddressBookId) as Persons,AddressBookId from PersondAddressBook
+Group by AddressBookId
+
+Select Count(AddressBookId) as Persons,PersonType from  PersondAddressBook p
+inner join AddressBookType a on p.AddressBookId=a.ABId
+Group by PersonType;
 
