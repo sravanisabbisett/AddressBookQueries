@@ -124,3 +124,15 @@ Select Count(AddressBookId) as Persons,PersonType from  PersondAddressBook p
 inner join AddressBookType a on p.AddressBookId=a.ABId
 Group by PersonType;
 
+
+--UC13_Curd operations
+Select * from Person
+where City='Bantumilli' or State='AndhraPradesh';
+
+Select Count(State) as CountPersons from Person
+where City='Bantumilli' and State='AndhraPradesh';
+
+Select * from Person
+where City='Hyderabad'
+order by Firstname desc;
+
