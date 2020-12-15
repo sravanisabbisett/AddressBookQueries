@@ -19,6 +19,7 @@ MobileNumber varchar(10) unique,
 EmailId varchar(50)
 );
 
+
 --UC3_Insert values in to table
 Insert into Person(Firstname,Lastname,Address,City,State,Zip,MobileNumber,EmailId)
 values('Sravani','Sabbisetti','GandhiChowk','Bantumilli','AndhraPradesh',521324,'8712443377','sravani.sabbisetti1@gmail.com'),
@@ -50,5 +51,24 @@ where City='Bantumilli' and State='AndhraPradesh';
 --UC8_Sort persons alphabetically by FirstName on basis of City
 Select * from Person
 where City='Hyderabad'
-order by Firstname;
+order by Firstname desc;
+
+Select Count(City) as CountCity,State,City from Person
+Group by City,State;
+
+
+--UC9--Creating table addressBook type to main the relation ship
+Create table AddressBookType(
+ABId int identity(1,1) primary key,
+PersonType varchar(20) ,
+AddressBookName varchar(50)
+);
+
+
+Insert into AddressBookType(PersonType,AddressBookName)
+values('Friends','FriendsAddressBook'),
+('Family','FamilyAddressBook'),
+('Profession','ProfessionAddressBook');
+
+
 
