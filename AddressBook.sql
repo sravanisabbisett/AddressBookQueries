@@ -70,5 +70,48 @@ values('Friends','FriendsAddressBook'),
 ('Family','FamilyAddressBook'),
 ('Profession','ProfessionAddressBook');
 
+--UC11 Adding one Person both Profession and friend
+Create table PersondAddressBook(
+PersonId int,
+AddressBookId int
+constraint PersonAddressBook_fk Foreign Key(PersonId) references Person(PersonId),
+constraint PersonAddressBook_fk1 Foreign key(AddressBookId) references AddressBookType(ABId)
+)
 
+Select * from Person
+
+Insert Into PersondAddressBook(PersonId,AddressBookId)
+values(1,2),
+(2,3),
+(3,1),
+(4,1),
+(5,3);
+
+Insert into Person(Firstname,Lastname,Address,City,State,Zip,MobileNumber,EmailId)
+values('MounikaS','Mekala','GandhiChowk','Bantumilli','AndhraPradesh',521324,'8706543218','Mounisha.sabbisetti1@gmail.com');
+
+DECLARE @AddressBookFriend AS int
+select @AddressBookFriend=ABId from AddressBookType where PersonType='Friends';
+
+
+Declare @AddressBookFamily as int
+Select @AddressBookFamily=ABId from AddressBookType where PersonType='Family';
+
+Declare @AddressBookProfession as int
+Select @AddressBookProfession=ABId from AddressBookType where PersonType='Profession';
+
+
+DECLARE @mylastinsertId AS int
+SELECT @mylastinsertId= @@IDENTITY 
+
+
+Insert into PersondAddressBook(PersonId,AddressBookId)
+Values(@mylastinsertId,@AddressBookFriend);
+
+Insert into PersondAddressBook(PersonId,AddressBookId)
+Values(@mylastinsertId,@AddressBookProfession);
+
+Select * from PersondAddressBook
+
+truncate table PersonAddressBook;
 
